@@ -3,148 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meteorito | Parque de Bolas Valencia</title>
+    <title>Meteorito | Diversión Sideral</title>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Jost:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --naranja: #FF6D00; --amarillo: #FFD600; --azul: #2979FF; --morado: #AA00FF; --blanco: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Jost', sans-serif; background-color: #fcfcfc; }
-        h1, h2, h3, .bungee { font-family: 'Bungee', cursive; }
+        body { font-family: 'Jost', sans-serif; background-color: #f8f8f8; color: #333; line-height: 1.6; }
+        h1, h2, h3, .bungee { font-family: 'Bungee', cursive; text-transform: uppercase; }
 
-        header { background: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 var(--azul); }
+        /* HEADER Y NAVEGACIÓN */
+        header { 
+            background: var(--blanco); padding: 10px 5%; display: flex; 
+            justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 0 var(--azul); 
+        }
         .logo-img { height: 60px; }
-        nav a { text-decoration: none; color: var(--azul); font-weight: 800; margin-left: 15px; text-transform: uppercase; font-size: 0.8rem; }
+        nav a { text-decoration: none; color: var(--azul); font-weight: 800; margin-left: 15px; font-size: 0.85rem; }
+        nav a:hover { color: var(--naranja); }
 
-        .section { padding: 60px 5%; text-align: center; }
+        /* SECCIONES ESTILO "PANTALLA" */
+        section { min-height: 100vh; padding: 80px 5%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         
+        /* INICIO / HERO */
+        #inicio { background: linear-gradient(var(--naranja), #ff9100); color: white; border-radius: 0 0 50px 50px; }
+        .btn-grande { background: var(--amarillo); color: #000; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-size: 1.5rem; box-shadow: 0 8px 0 #b79a00; margin-top: 30px; transition: 0.2s; }
+        .btn-grande:active { transform: translateY(4px); box-shadow: 0 4px 0 #b79a00; }
+
+        /* QUIÉNES SOMOS */
+        #quienes { background: white; }
+        .text-box { max-width: 800px; font-size: 1.2rem; }
+
+        /* QUÉ HACEMOS E INTERACTIVOS */
+        #que { background: #f0f0f0; }
+        .grid-interactivo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; margin-top: 40px; }
+        .card-fiesta { background: white; border-radius: 20px; border: 4px solid var(--azul); padding: 20px; transition: 0.3s; }
+        .card-fiesta img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+        .btn-info { background: var(--naranja); color: white; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
+
         /* FORMULARIO DE RESERVA */
-        .reserva-box { background: var(--blanco); border: 5px solid var(--azul); border-radius: 30px; padding: 30px; max-width: 600px; margin: 30px auto; box-shadow: 10px 10px 0 var(--amarillo); }
-        .reserva-box input, .reserva-box select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 2px solid #ddd; font-family: 'Jost'; }
-        .btn-enviar { background: var(--verde-wa, #25d366); color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-family: 'Bungee'; width: 100%; font-size: 1.1rem; margin-top: 10px; }
+        #reservar { background: var(--azul); color: white; }
+        .form-box { background: white; color: #333; padding: 30px; border-radius: 30px; width: 100%; max-width: 500px; text-align: left; box-shadow: 10px 10px 0 var(--amarillo); }
+        .form-box label { font-weight: bold; display: block; margin-top: 15px; color: var(--azul); }
+        .form-box input, .form-box select, .form-box textarea { width: 100%; padding: 12px; margin-top: 5px; border: 2px solid #ddd; border-radius: 10px; font-family: 'Jost'; }
+        
+        /* LOCALES CON SLIDER */
+        #locales { background: white; }
+        .slider { display: flex; overflow-x: auto; gap: 15px; padding: 20px; width: 100%; max-width: 1000px; scroll-snap-type: x mandatory; }
+        .slider img { width: 300px; height: 200px; flex-shrink: 0; object-fit: cover; border-radius: 20px; border: 4px solid var(--naranja); scroll-snap-align: center; }
 
-        /* GALERÍA Y SLIDERS */
-        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .galeria-item { width: 100%; height: 200px; border-radius: 15px; object-fit: cover; border: 4px solid var(--amarillo); }
-        .slider-fotos { display: flex; overflow-x: auto; gap: 10px; padding: 10px; border-radius: 20px; }
-        .slider-fotos img { width: 280px; height: 180px; flex-shrink: 0; object-fit: cover; border-radius: 15px; border: 2px solid var(--naranja); }
+        /* FOOTER Y REDES */
+        footer { background: #222; color: white; padding: 40px; width: 100%; }
+        .socials a { font-size: 2.5rem; color: var(--amarillo); margin: 0 15px; }
 
-        /* REDES SOCIALES */
-        .social-icons { margin-top: 20px; }
-        .social-icons a { font-size: 2rem; margin: 0 10px; color: var(--azul); transition: 0.3s; }
-        .social-icons a:hover { color: var(--naranja); }
-
-        footer { background: #222; color: white; padding: 40px 5%; text-align: center; }
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 2000; text-decoration: none; color: white; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; text-decoration: none; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-box">
-            <img src="image_cd91eb.png" alt="Logo" class="logo-img">
-        </div>
+        <a href="#inicio"><img src="image_cd91eb.png" alt="Logo" class="logo-img"></a>
         <nav>
             <a href="#quienes">¿Quiénes somos?</a>
             <a href="#que">¿Qué hacemos?</a>
             <a href="#galeria">Galería</a>
             <a href="#locales">Locales</a>
-            <a href="#reservar">Reservar</a>
+            <a href="#reservar" style="color:var(--naranja)">¡RESERVAR!</a>
         </nav>
     </header>
 
-    <section id="reservar" class="section">
-        <h2 style="color:var(--naranja)">¡HAZ TU RESERVA AQUÍ! ☄️</h2>
-        <div class="reserva-box">
-            <label>¿Qué local prefieres?</label>
-            <select id="local">
-                <option value="Baleares">Meteorito Baleares (Pintor Maella)</option>
-                <option value="Juan Llorens">Meteorito Juan Llorens</option>
-            </select>
+    <section id="inicio">
+        <h1 style="font-size: 4rem; text-shadow: 4px 4px var(--azul);">METEORITO</h1>
+        <p style="font-size: 1.5rem; font-weight: bold;">¡La aventura comienza aquí!</p>
+        <a href="#reservar" class="btn-grande bungee">RESERVAR CUMPLE</a>
+    </section>
 
-            <label>¿Qué quieres hacer?</label>
-            <select id="motivo" onchange="toggleCumple()">
-                <option value="Solo ir a jugar">Solo ir a jugar hoy/mañana</option>
-                <option value="Celebrar un Cumple">Celebrar un Cumpleaños</option>
-                <option value="Preguntar si está abierto">Preguntar si está abierto</option>
-            </select>
+    <section id="quienes">
+        <h2>¿Quiénes somos?</h2>
+        <div class="text-box">
+            <p>En Meteorito llevamos años creando sonrisas en Valencia. Somos más que un parque de bolas; somos el lugar donde los peques se convierten en chefs, científicos o princesas por un día. ¡Diversión 100% segura y monitores súper enrollados!</p>
+        </div>
+        <img src="image_cd91eb.png" style="width:150px; margin-top:30px">
+    </section>
 
-            <div id="extra-cumple" style="display:none;">
-                <input type="number" id="ninos" placeholder="Número de niños">
-                <input type="date" id="fecha">
-                <select id="tematica">
-                    <option value="Básica">Temática: Básica</option>
-                    <option value="SPA">Temática: SPA</option>
-                    <option value="Petit Chef">Temática: Petit Chef</option>
-                    <option value="Científico">Temática: Científico</option>
-                </select>
+    <section id="que">
+        <h2>Nuestras Fiestas</h2>
+        <div class="grid-interactivo">
+            <div class="card-fiesta">
+                <img src="image_cd92c8.png" alt="Fiesta SPA">
+                <h3>Fiesta SPA</h3>
+                <p>Relajación, manicura infantil y mucha purpurina para un día de mimos.</p>
+                <a href="#reservar" class="btn-info" onclick="setTematica('SPA')">Ver precios y reservar</a>
             </div>
+            <div class="card-fiesta">
+                <img src="image_cd9288.png" alt="Petit Chef">
+                <h3>Petit Chef</h3>
+                <p>¡Manos a la masa! Los niños cocinan su propia merienda con gorro de chef.</p>
+                <a href="#reservar" class="btn-info" onclick="setTematica('Petit Chef')">Ver precios y reservar</a>
+            </div>
+            <div class="card-fiesta">
+                <img src="image_cd9952.jpg" alt="Parque Libre">
+                <h3>Juego Libre</h3>
+                <p>Ven a saltar y jugar sin reserva previa (según aforo).</p>
+                <a href="#reservar" class="btn-info" onclick="setTematica('Solo ir a jugar')">Consultar horario</a>
+            </div>
+        </div>
+    </section>
 
-            <button class="btn-enviar" onclick="enviarWhatsapp()">
-                <i class="fab fa-whatsapp"></i> ENVIAR A WHATSAPP
+    <section id="galeria">
+        <h2>Galería Sideral</h2>
+        <div class="grid-interactivo">
+            <img src="image_cd99aa.jpg" style="width:100%; border-radius:20px">
+            <img src="image_cd9629.png" style="width:100%; border-radius:20px">
+            <img src="image_cd9649.png" style="width:100%; border-radius:20px">
+        </div>
+    </section>
+
+    <section id="locales">
+        <h2>Nuestros Locales</h2>
+        <p>Desliza para ver las fotos</p>
+        <div class="slider">
+            <img src="image_cd9591.png" alt="Baleares">
+            <img src="image_cd92c8.png" alt="Baleares interior">
+            <img src="image_cd9288.png" alt="Cocina Meteorito">
+            <img src="image_cd91eb.png" alt="Juan Llorens">
+        </div>
+        <div style="margin-top:20px">
+            <p><strong>Baleares:</strong> Pintor Maella 13</p>
+            <p><strong>Juan Llorens:</strong> Plaza Horticultor Corset 17</p>
+        </div>
+    </section>
+
+    <section id="reservar">
+        <h2 style="color:var(--amarillo)">SOLICITAR RESERVA</h2>
+        <div class="form-box">
+            <label>Elige Local</label>
+            <select id="local">
+                <option value="Baleares">Baleares (Pintor Maella)</option>
+                <option value="Juan Llorens">Juan Llorens</option>
+            </select>
+
+            <label>Tipo de Fiesta / Consulta</label>
+            <select id="motivo" onchange="checkMotivo()">
+                <option value="Cumpleaños Estándar">Cumpleaños Estándar</option>
+                <option value="Fiesta SPA">Fiesta SPA</option>
+                <option value="Petit Chef">Petit Chef</option>
+                <option value="Solo ir a jugar">Solo ir a jugar</option>
+                <option value="Otra consulta">Otra consulta / Personalizado</option>
+            </select>
+
+            <label>¿Cuántos niños serán?</label>
+            <select id="ninos">
+                <option value="Aún no lo sé">Aún no lo sé</option>
+                <option value="Menos de 10">Menos de 10</option>
+                <option value="10 a 20">10 a 20</option>
+                <option value="Más de 20">Más de 20</option>
+            </select>
+
+            <label>Mensaje Adicional (Opcional)</label>
+            <textarea id="mensaje" rows="3" placeholder="Cuéntanos lo que necesites..."></textarea>
+
+            <button class="btn-enviar bungee" style="background:#25d366; color:white; width:100%; padding:15px; margin-top:20px; border:none; border-radius:10px; cursor:pointer;" onclick="enviar()">
+                <i class="fab fa-whatsapp"></i> ENVIAR SOLICITUD
             </button>
         </div>
     </section>
 
-    <section id="locales" class="section" style="background:#eee">
-        <h2>Nuestros Locales</h2>
-        <div style="margin-bottom:40px; background:white; padding:20px; border-radius:20px; border:4px solid var(--azul)">
-            <h3>BALEARES</h3>
-            <div class="slider-fotos">
-                <img src="image_cd9591.png"> <img src="image_cd92c8.png"> <img src="image_cd9288.png">
-            </div>
-        </div>
-        <div style="background:white; padding:20px; border-radius:20px; border:4px solid var(--naranja)">
-            <h3>JUAN LLORENS</h3>
-            <div class="slider-fotos">
-                <img src="image_cd9629.png"> <img src="image_cd9649.png"> <img src="image_cd91eb.png">
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria" class="section">
-        <h2>Galería de Fotos</h2>
-        <div class="galeria-grid">
-            <img src="image_cd9952.jpg" class="galeria-item">
-            <img src="image_cd99aa.jpg" class="galeria-item">
-            <img src="image_cd91eb.png" class="galeria-item">
-        </div>
-    </section>
-
     <footer>
-        <h3 class="bungee">¡Síguenos en redes!</h3>
-        <div class="social-icons">
-            <a href="TU_INSTAGRAM_AQUÍ"><i class="fab fa-instagram"></i></a>
-            <a href="TU_FACEBOOK_AQUÍ"><i class="fab fa-facebook"></i></a>
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <br>
-        <p>&copy; 2024 Meteorito Valencia</p>
-    </footer>
+        <p style="margin-top:20px">© 2024 Meteorito Valencia. Adaptado para papis y mamis ☄️</p>
+    </section>
 
-    <a href="https://wa.me/34637098967" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/34600000000" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        function toggleCumple() {
-            const motivo = document.getElementById('motivo').value;
-            const extra = document.getElementById('extra-cumple');
-            extra.style.display = (motivo === "Celebrar un Cumple") ? "block" : "none";
+        function setTematica(t) {
+            document.getElementById('motivo').value = t;
+            // Al pulsar en una tarjeta, te lleva suavemente al formulario
         }
 
-        function enviarWhatsapp() {
-            const telefono = "34600000000"; // PON EL DE TU MAMA
+        function enviar() {
+            const num = "34600000000"; // CAMBIA AL NÚMERO DE TU MAMA
             const local = document.getElementById('local').value;
             const motivo = document.getElementById('motivo').value;
-            let mensaje = `Hola Meteorito! Quiero información sobre: ${motivo} en el centro de ${local}.`;
+            const ninos = document.getElementById('ninos').value;
+            const extra = document.getElementById('mensaje').value;
 
-            if (motivo === "Celebrar un Cumple") {
-                const ninos = document.getElementById('ninos').value;
-                const fecha = document.getElementById('fecha').value;
-                const tematica = document.getElementById('tematica').value;
-                mensaje += ` Seríamos unos ${ninos} niños para el día ${fecha} con la temática ${tematica}.`;
-            }
+            const texto = `¡Hola Meteorito! ☄️ Quiero info:
+- *Local:* ${local}
+- *Interés:* ${motivo}
+- *Niños:* ${ninos}
+- *Nota:* ${extra}`;
 
-            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
+            window.open(`https://wa.me/${num}?text=${encodeURIComponent(texto)}`, '_blank');
         }
     </script>
 </body>
