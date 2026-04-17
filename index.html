@@ -21,45 +21,37 @@
         }
         .logo-img { height: 55px; cursor: pointer; }
         
-        nav { display: flex; gap: 15px; align-items: center; }
-        nav a { text-decoration: none; color: var(--azul); font-weight: 800; font-size: 0.75rem; cursor: pointer; border-bottom: 3px solid transparent; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--naranja); border-bottom: 3px solid var(--naranja); }
+        nav { display: flex; gap: 12px; align-items: center; }
+        nav a { text-decoration: none; color: var(--azul); font-weight: 800; font-size: 0.7rem; cursor: pointer; transition: 0.3s; }
+        nav a:hover { color: var(--naranja); }
 
-        /* SISTEMA DE PANTALLAS */
+        /* PANTALLAS */
         .pantalla { display: none; min-height: 90vh; padding: 40px 5%; animation: fadeIn 0.5s ease; }
         .pantalla.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* INICIO */
-        #inicio { text-align: center; background: linear-gradient(var(--naranja), #ff9100); color: white; display: none; flex-direction: column; align-items: center; justify-content: center; }
-        #inicio.active { display: flex; }
-        .hero-title { font-size: 4rem; text-shadow: 4px 4px var(--azul); margin-bottom: 10px; }
-        .btn-reserva-home { background: var(--amarillo); color: black; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-size: 1.5rem; margin-top: 20px; box-shadow: 0 8px 0 #b79a00; cursor: pointer; }
-
-        /* SLIDERS EN QUÉ HACEMOS */
+        /* SLIDERS */
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: white; border-radius: 25px; border: 4px solid var(--azul); padding: 15px; text-align: center; position: relative; overflow: hidden; }
-        .slider-container { position: relative; width: 100%; height: 220px; margin-bottom: 15px; border-radius: 15px; overflow: hidden; }
+        .card { background: white; border-radius: 25px; border: 4px solid var(--azul); padding: 15px; text-align: center; position: relative; }
+        .slider-container { position: relative; width: 100%; height: 220px; margin-bottom: 15px; border-radius: 15px; overflow: hidden; background: #eee; }
         .slider-wrapper { display: flex; width: 100%; height: 100%; transition: transform 0.4s ease-in-out; }
         .slider-wrapper img { min-width: 100%; height: 100%; object-fit: cover; }
         .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; z-index: 5; color: var(--azul); font-weight: bold; }
         .arrow-left { left: 10px; } .arrow-right { right: 10px; }
 
-        /* PANTALLA EQUIPO */
-        .equipo-box { max-width: 700px; margin: 0 auto; background: white; border: 5px solid var(--morado); padding: 40px; border-radius: 30px; text-align: center; box-shadow: 10px 10px 0 #eee; }
-        .btn-equipo { background: var(--morado); color: white; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-size: 1.2rem; display: inline-block; margin-top: 20px; box-shadow: 0 6px 0 #6a00a3; cursor: pointer; }
-
-        /* FORMULARIO */
-        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 30px; box-shadow: 10px 10px 0 var(--amarillo); border: 3px solid var(--azul); }
+        /* FORMULARIOS */
+        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 30px; border: 3px solid var(--azul); box-shadow: 10px 10px 0 var(--amarillo); }
         .form-container label { display: block; margin-top: 15px; font-weight: bold; color: var(--azul); text-align: left; }
-        .form-container input, .form-container select, .form-container textarea { width: 100%; padding: 12px; margin-top: 5px; border-radius: 10px; border: 2px solid #ddd; font-family: inherit; }
-        
-        .btn-card { background: var(--naranja); color: white; padding: 10px 20px; border-radius: 10px; display: inline-block; margin-top: 10px; text-decoration: none; font-weight: bold; cursor: pointer; }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 2000; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        
-        footer { background: #222; color: white; padding: 30px; text-align: center; margin-top: 40px; }
-        .socials a { color: var(--amarillo); margin: 0 10px; font-size: 2rem; }
+        .form-container select, .form-container textarea { width: 100%; padding: 12px; margin-top: 5px; border-radius: 10px; border: 2px solid #ddd; font-family: 'Jost'; }
+
+        /* FOOTER */
+        footer { background: #222; color: white; padding: 40px 5%; text-align: center; margin-top: 50px; }
+        .social-icons { margin-bottom: 20px; }
+        .social-icons a { color: var(--amarillo); font-size: 2.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--blanco); transform: scale(1.1); }
+
+        .btn-card { background: var(--naranja); color: white; padding: 10px 20px; border-radius: 10px; border: none; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
@@ -76,34 +68,38 @@
         </nav>
     </header>
 
-    <section id="inicio" class="pantalla active">
-        <h1 class="hero-title">METEORITO</h1>
-        <p style="font-size: 1.5rem; font-weight: bold;">El lugar perfecto para peques y grandes.</p>
-        <a onclick="mostrarPantalla('reservar')" class="btn-reserva-home bungee">RESERVAR AHORA</a>
-    </section>
-
-    <section id="quienes" class="pantalla">
-        <h2 style="text-align:center; color:var(--azul); margin-bottom:30px;">Nuestra Historia</h2>
-        <div style="max-width: 900px; margin: 0 auto; line-height: 1.8; background: white; padding: 30px; border-radius: 20px; border-left: 10px solid var(--azul);">
-            <p><strong>Meteorito</strong> inició su actividad en <strong>GODELLA</strong> en el 2004 y en septiembre del 2011, abrimos <strong>Meteorito VALENCIA</strong>.</p>
-            <p>En Mayo del 2013 iniciamos <em>Meteorito va a tu fiesta</em> en México DF... (Aquí va todo tu texto histórico)</p>
-            <p>Nuestro personal es altamente calificado y profesional, disfrutando cada día con los niños.</p>
-        </div>
+    <section id="inicio" class="pantalla active" style="text-align:center; background: linear-gradient(var(--naranja), #ff9100); color: white; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <h1 style="font-size: 4rem; text-shadow: 4px 4px var(--azul);">METEORITO</h1>
+        <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 30px;">¡Donde la diversión despega!</p>
+        <button onclick="mostrarPantalla('reservar')" class="bungee" style="background:var(--amarillo); padding:20px 40px; border:none; border-radius:50px; cursor:pointer; font-size:1.5rem; box-shadow:0 8px 0 #b79a00;">¡QUIERO RESERVAR!</button>
     </section>
 
     <section id="que" class="pantalla">
-        <h2 style="text-align:center;">Nuestras Fiestas</h2>
+        <h2 style="text-align:center; margin-bottom:30px;">Nuestras Fiestas</h2>
         <div class="grid-cards">
+            
             <div class="card">
                 <div class="slider-container" id="s-spa">
                     <button class="arrow arrow-left" onclick="moveSlider('s-spa', -1)">❮</button>
                     <div class="slider-wrapper">
-                        <img src="SPA.png"> <img src="SPA2.png"> <img src="SPA3.png">
+                        <img src="SPA.png"> <img src="SPA2.png">
                     </div>
                     <button class="arrow arrow-right" onclick="moveSlider('s-spa', 1)">❯</button>
                 </div>
                 <h3>Fiesta SPA</h3>
-                <a onclick="reservarTipo('Fiesta SPA')" class="btn-card">¡Reservar!</a>
+                <button onclick="reservarTipo('Fiesta SPA')" class="btn-card">¡Reservar!</button>
+            </div>
+
+            <div class="card" style="border-color: var(--morado);">
+                <div class="slider-container" id="s-va">
+                    <button class="arrow arrow-left" onclick="moveSlider('s-va', -1)">❮</button>
+                    <div class="slider-wrapper">
+                        <img src="DOMICILIO1.png"> <img src="DOMICILIO2.png">
+                    </div>
+                    <button class="arrow arrow-right" onclick="moveSlider('s-va', 1)">❯</button>
+                </div>
+                <h3 style="color:var(--morado)">Va a tu fiesta / Feria</h3>
+                <button onclick="reservarTipo('Meteorito va a tu fiesta')" class="btn-card" style="background:var(--morado)">¡Consultar!</button>
             </div>
 
             <div class="card">
@@ -115,60 +111,57 @@
                     <button class="arrow arrow-right" onclick="moveSlider('s-chef', 1)">❯</button>
                 </div>
                 <h3>Petit Chefs</h3>
-                <a onclick="reservarTipo('Petit Chef')" class="btn-card">¡A cocinar!</a>
+                <button onclick="reservarTipo('Petit Chef')" class="btn-card">¡Reservar!</button>
             </div>
 
-            <div class="card">
-                <div class="slider-container" id="s-va">
-                    <button class="arrow arrow-left" onclick="moveSlider('s-va', -1)">❮</button>
-                    <div class="slider-wrapper">
-                        <img src="VA_FIESTA1.png"> <img src="VA_FIESTA2.png">
-                    </div>
-                    <button class="arrow arrow-right" onclick="moveSlider('s-va', 1)">❯</button>
-                </div>
-                <h3>Va a tu fiesta / Feria</h3>
-                <a onclick="reservarTipo('Va a tu Fiesta')" class="btn-card">¡Consultar!</a>
-            </div>
         </div>
     </section>
 
     <section id="equipo" class="pantalla">
-        <h2 style="text-align:center; color:var(--morado); margin-bottom:30px;">¿Quieres ser un Monitor Meteorito?</h2>
-        <div class="equipo-box">
+        <h2 style="text-align:center; color:var(--morado); margin-bottom:30px;">¿Quieres trabajar con nosotros?</h2>
+        <div style="max-width:600px; margin:0 auto; background:white; padding:40px; border-radius:30px; text-align:center; border:5px solid var(--morado); box-shadow:10px 10px 0 #eee;">
             <i class="fas fa-rocket" style="font-size: 4rem; color: var(--morado); margin-bottom: 20px;"></i>
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">Buscamos gente alegre, responsable y que le encanten los niños para unirse a nuestra tripulación.</p>
-            <p>¡Si quieres trabajar con nosotros, envíanos un mensaje!</p>
-            <a onclick="enviarWAEquipo()" class="btn-equipo bungee">ENVIAR CANDIDATURA</a>
+            <h3 class="bungee">¡Buscamos monitores!</h3>
+            <p style="margin:20px 0; font-size:1.1rem;">Si eres una persona alegre, responsable y te encantan los niños, ¡te estamos esperando!</p>
+            <button onclick="enviarWhatsAppEquipo()" class="bungee" style="background:var(--morado); color:white; padding:20px; border:none; border-radius:50px; width:100%; cursor:pointer; font-size:1.1rem;">
+                <i class="fab fa-whatsapp"></i> ENVIAR MI CANDIDATURA
+            </button>
         </div>
     </section>
 
     <section id="reservar" class="pantalla">
-        <h2 style="text-align:center; color:var(--azul);">Reserva tu aventura</h2>
+        <h2 style="text-align:center; color:var(--azul);">Formulario de Reserva</h2>
         <div class="form-container">
-            <label>Elige el Centro</label>
-            <select id="local-sel"><option>Baleares</option><option>Juan Llorens</option></select>
-            <label>¿Qué celebramos?</label>
-            <select id="tipo-sel"><option>Cumple Estándar</option><option>Fiesta SPA</option><option>Petit Chef</option><option>Científicos</option><option>Otro</option></select>
-            <label>Número de niños</label>
-            <select id="ninos-sel"><option>Aún no lo sé</option><option>Menos de 10</option><option>10 a 20</option><option>Más de 20</option></select>
-            <label>Mensaje adicional</label>
-            <textarea id="msj-extra" rows="3"></textarea>
-            <button onclick="enviarWA()" class="bungee" style="width:100%; padding:15px; background:#25d366; color:white; border:none; border-radius:15px; margin-top:20px; cursor:pointer;">ENVIAR A WHATSAPP</button>
+            <label>Elige Centro</label>
+            <select id="local"><option>Baleares</option><option>Juan Llorens</option><option>A domicilio</option></select>
+            <label>Tipo de Evento</label>
+            <select id="tipo"><option>Cumple Estándar</option><option>Fiesta SPA</option><option>Petit Chef</option><option>Científicos</option><option>Meteorito va a tu fiesta</option></select>
+            <label>¿Cuántos niños serán?</label>
+            <select id="ninos"><option>Aún no lo sé</option><option>Menos de 10</option><option>10-20</option><option>Más de 20</option></select>
+            <label>Mensaje / Notas</label>
+            <textarea id="notas" rows="3"></textarea>
+            <button onclick="enviarReserva()" class="bungee" style="width:100%; padding:15px; background:#25d366; color:white; border:none; border-radius:15px; margin-top:20px; cursor:pointer;">ENVIAR A WHATSAPP</button>
         </div>
     </section>
 
+    <section id="quienes" class="pantalla">
+        <h2 style="text-align:center; color:var(--azul);">Nuestra Historia</h2>
+        <p style="max-width:800px; margin:20px auto; line-height:1.8;">Meteorito inició en Godella en 2004... (todo tu texto aquí)</p>
+    </section>
+
     <footer>
-        <div class="socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/p/Meteorito-Fiestas-Infantiles-100063564130839/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/meteorito_fiestas_infantiles/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>© 2024 Meteorito Valencia</p>
+        <p class="bungee" style="color:var(--amarillo)">Meteorito Valencia</p>
+        <p style="margin-top:10px; font-size:0.8rem;">© 2024 Todos los derechos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/34637098967" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/34637098967" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        const telMama = "34637098967";
+        const WHATSAPP_PRINCIPAL = "34637098967";
 
         function mostrarPantalla(id) {
             document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('active'));
@@ -176,29 +169,28 @@
             window.scrollTo(0, 0);
         }
 
+        const sliderStates = {};
+        function moveSlider(id, dir) {
+            const wrapper = document.querySelector(`#${id} .slider-wrapper`);
+            const total = wrapper.querySelectorAll('img').length;
+            if (!sliderStates[id]) sliderStates[id] = 0;
+            sliderStates[id] = (sliderStates[id] + dir + total) % total;
+            wrapper.style.transform = `translateX(-${sliderStates[id] * 100}%)`;
+        }
+
         function reservarTipo(t) {
-            document.getElementById('tipo-sel').value = t;
+            document.getElementById('tipo').value = t;
             mostrarPantalla('reservar');
         }
 
-        const sliderPos = {};
-        function moveSlider(id, dir) {
-            const container = document.getElementById(id);
-            const wrapper = container.querySelector('.slider-wrapper');
-            const total = wrapper.querySelectorAll('img').length;
-            if (!sliderPos[id]) sliderPos[id] = 0;
-            sliderPos[id] = (sliderPos[id] + dir + total) % total;
-            wrapper.style.transform = `translateX(${sliderPos[id] * -100}%)`;
+        function enviarReserva() {
+            const m = `¡Hola Meteorito! ☄️\nCentro: ${document.getElementById('local').value}\nEvento: ${document.getElementById('tipo').value}\nNiños: ${document.getElementById('ninos').value}\nNotas: ${document.getElementById('notas').value}`;
+            window.open(`https://wa.me/${WHATSAPP_PRINCIPAL}?text=${encodeURIComponent(m)}`, '_blank');
         }
 
-        function enviarWA() {
-            const msg = `¡Hola Meteorito! 🌟\nLocal: ${document.getElementById('local-sel').value}\nEvento: ${document.getElementById('tipo-sel').value}\nNiños: ${document.getElementById('ninos-sel').value}\nNota: ${document.getElementById('msj-extra').value}`;
-            window.open(`https://wa.me/${telMama}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function enviarWAEquipo() {
-            const msgEquipo = "Hola, estoy interesad@ en unirme al equipo de meteorito como monitor. ¿Me podríais dar más información sobre cómo enviar mi CV?";
-            window.open(`https://wa.me/${telMama}?text=${encodeURIComponent(msgEquipo)}`, '_blank');
+        function enviarWhatsAppEquipo() {
+            const m = "Hola, estoy interesad@ en unirme al equipo de meteorito como monitor. ¿Me podríais dar más información?";
+            window.open(`https://wa.me/${WHATSAPP_PRINCIPAL}?text=${encodeURIComponent(m)}`, '_blank');
         }
     </script>
 </body>
